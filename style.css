@@ -1,0 +1,428 @@
+/* Estilos Gerais e Paleta de Cores */
+:root {
+    --primary-blue: #007bff; /* Um azul vibrante */
+    --dark-blue: #0056b3;    /* Um azul mais escuro para hover */
+    --light-blue: #e0f2ff;   /* Um azul bem claro */
+    --white: #ffffff;
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --content-background: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente para as seções */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--light-blue); /* Fundo padrão caso a imagem não carregue */
+    color: var(--text-color);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Imagem de Fundo Personalizada */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(80%); /* Escurece um pouco a imagem para o texto se destacar */
+    z-index: -1;
+}
+
+/* Cabeçalho com Botões de Compartilhar/QR Code */
+.main-header {
+    width: 100%;
+    padding: 15px 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+.top-buttons-wrapper {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 90%;
+    max-width: 300px;
+}
+
+.action-button {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-grow: 1;
+    text-align: center; /* Garante que o texto fique centralizado nos botões */
+}
+
+.action-button:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+.small-button {
+    padding: 10px 12px;
+    font-size: 0.9em;
+}
+
+.large-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.full-width-button {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Conteúdo Principal (sem fundo próprio) */
+.content-wrapper {
+    padding: 0;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Aplicando fundo branco e sombra às seções individuais */
+.profile-section,
+.company-section,
+.social-media-section {
+    background-color: var(--content-background);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* NOVO: Estilo base para products-cta-section que vai conter o botão e o conteúdo */
+.products-cta-section {
+    background-color: var(--content-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px; /* Padding inicial para o botão */
+    overflow: hidden; /* Importante para a transição de max-height */
+}
+
+/* Seção de Perfil */
+.profile-image-container {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px auto;
+    border: 5px solid var(--primary-blue);
+    box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 2em;
+    color: var(--dark-blue);
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+}
+
+.profile-description {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Seção da Empresa e Botões de Contato */
+.company-logo {
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.contact-buttons .action-button.large-button {
+    width: calc(50% - 5px);
+    margin: 0;
+}
+
+
+/* Seção de Redes Sociais */
+.social-media-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon-link {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.social-icon-link:hover {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* Estilos do Modal QR Code (geral) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    text-align: center;
+    position: relative;
+    max-width: 320px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.qr-code-placeholder {
+    margin: 20px auto;
+    width: 180px;
+    height: 180px;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Estilos para a seção de produtos expansível --- */
+.products-cta-section .full-width-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.toggle-icon {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-icon.rotated {
+    transform: rotate(180deg);
+}
+
+.products-content-hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0;
+    margin-top: 0;
+    /* Adicione estas propriedades para garantir que não haja vazamento */
+    visibility: hidden;
+    opacity: 0;
+}
+
+.products-content-visible {
+    /* Aumentado significativamente para acomodar mais produtos */
+    max-height: 2000px; /* Valor bem alto para garantir que todos os produtos caibam */
+    padding-top: 20px;
+    /* Ajuste para que a seção de produtos tenha padding inferior, se desejado */
+    padding-bottom: 0; /* Mantenha 0 aqui para que a section pai controle o padding inferior */
+    margin-top: 20px;
+    /* Adicione estas propriedades para garantir que a transição seja suave */
+    visibility: visible;
+    opacity: 1;
+}
+
+.product-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    margin-bottom: 20px; /* Espaço entre os produtos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.product-item:last-child {
+    margin-bottom: 0; /* Remove margem do último item para que não crie espaço extra na base do productsContent */
+}
+
+.product-image {
+    max-width: 120px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+.product-name {
+    font-size: 1.4em;
+    color: var(--dark-blue);
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+}
+
+.product-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.product-price {
+    font-size: 1.2em;
+    color: var(--primary-blue);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.pix-button {
+    width: 90%;
+    padding: 10px 15px;
+    font-size: 1em;
+}
+
+/* --- Estilos do Modal Pix de Produto (aninhado - permanece como modal) --- */
+.product-pix-modal {
+    z-index: 250;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.pix-modal-content {
+    max-width: 280px;
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.pix-qr-code-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border: 1px solid #eee;
+    display: block;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.pix-instructions {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 15px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+/* NOVO: Estilo para o botão de copiar Pix */
+.copy-pix-button {
+    background-color: #28a745; /* Um verde vibrante */
+    width: 100%; /* Ocupa a largura total do modal */
+    margin-top: 10px; /* Espaço acima do botão */
+    padding: 12px 15px;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.copy-pix-button:hover {
+    background-color: #218838; /* Um verde mais escuro no hover */
+    transform: translateY(-1px);
+}
+
+
+/* Media Query para telas menores */
+@media (max-width: 360px) {
+    .product-name {
+        font-size: 1.3em;
+    }
+    .product-description {
+        font-size: 0.85em;
+    }
+    .product-price {
+        font-size: 1.1em;
+    }
+    .pix-button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+    .copy-pix-button {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+}
