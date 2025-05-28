@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guilherme Andrade (TagGle NFC)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background-overlay"></div> 
+
+    <header class="main-header">
+        <div class="top-buttons-wrapper">
+            <button id="shareSiteBtn" class="action-button small-button">
+                <i class="fas fa-share-alt"></i> Compartilhar
+            </button>
+            <button id="qrCodeBtn" class="action-button small-button">
+                <i class="fas fa-qrcode"></i> QR Code
+            </button>
+            </div>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="profile-section">
+            <div class="profile-image-container">
+                <img src="foto.jpeg" alt="Sua Foto" class="profile-image">
+            </div>
+            <h1 class="profile-name">Guilherme Andrade</h1>
+            <p class="profile-description">
+                Especialista em soluções NFC para otimizar negócios e conexões.
+                Ceo da TagGle NFC
+            </p>
+        </section>
+
+        <section class="company-section">
+            <img src="logo + taggle.png" alt="Logo da Empresa NFC" class="company-logo">
+            <div class="contact-buttons">
+                <button class="action-button large-button" onclick="window.location.href='contato.vcf'">Salvar Contato</button>
+                <button class="action-button large-button" onclick="window.open('https://wa.me/5521966447779', '_blank')">WhatsApp</button>
+            </div>
+        </section>
+
+        <section class="social-media-section">
+            <a href="https://github.com/GuiAndradx" target="_blank" class="social-icon-link">
+                <img src="github.png" alt="GitHub" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com/in/guilherme-andrade-60750435b/" target="_blank" class="social-icon-link">
+                <img src="linkedin.png" alt="LinkedIn" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/guiiandrad_/" target="_blank" class="social-icon-link">
+                <img src="instagram.png" alt="Instagram" class="social-icon">
+            </a>
+            <div id="generalPixBtnLink" class="social-icon-link" style="cursor: pointer;">
+                <img src="pix.png" alt="Pix" class="social-icon">
+            </div>
+        </section>
+
+        <section class="products-cta-section">
+            <button id="toggleProductsBtn" class="action-button large-button full-width-button">
+                <i class="fas fa-box-open"></i> Ver Produtos <i class="fas fa-chevron-down toggle-icon"></i>
+            </button>
+            <div id="productsContent" class="products-content-hidden">
+                <div class="product-item">
+                    <img src="cartao.jpg" alt="Nome do Produto 1" class="product-image">
+                    <h3 class="product-name">CARTÃO NFC PERSONALIZADO</h3>
+                    <p class="product-description">Um cartão de visitas moderno e sustentável para compartilhar seus contatos e redes sociais com um toque. Ideal para profissionais e empresas.</p>
+                    <p class="product-price">R$ 79,90</p>
+                    <button class="action-button pix-button" data-qrcode="qrcode cartao.jpeg" data-pix-code="00020126640014br.gov.bcb.pix0114+55219664477790224CARTAO NFC PERSONALIZADO520400005303986540579.905802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr7340250375549516304CF94">
+                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    </button>
+                </div>
+
+                <div class="product-item">
+                    <img src="placa.jpg" alt="Nome do Produto 2" class="product-image">
+                    <h3 class="product-name">PLACA NFC PERSONALIZADA COM RESINA</h3>
+                    <p class="product-description">Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local. Contem proteção de resina que mantem o brilho e evita desgastes.</p>
+                    <p class="product-price">R$ 139,90</p>
+                    <button class="action-button pix-button" data-qrcode="qrcode placa.jpeg" data-pix-code="00020126630014br.gov.bcb.pix0114+55219664477790223PLACA NFC PERSONALIZADA5204000053039865406150.005802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr7340250378115986304F207">
+                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    </button>
+                </div>
+
+                <div class="product-item">
+                    <img src="adesivo.jpg" alt="Nome do Produto 3" class="product-image">
+                    <h3 class="product-name">ADESIVO NFC PERSONALIZADO COM RESINA</h3>
+                    <p class="product-description">Ideal para pequenas empresas e networking. Contem proteção de resina que mantem o brilho e evita desgastes.</p>
+                    <p class="product-price">R$ 69,90</p>
+                    <button class="action-button pix-button" data-qrcode="qrcode adesivo.jpeg" data-pix-code="00020126360014br.gov.bcb.pix0114+5521966447779520400005303986540569.905802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr7340250376835286304D8B5">
+                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    </button>
+                </div>
+
+                <div class="product-item">
+                    <img src="placa.jpg" alt="Placa nfc" class="product-image">
+                    <h3 class="product-name">PLACA NFC PERSONALIZADA</h3>
+                    <p class="product-description">Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local.</p>
+                    <p class="product-price">R$ 99,90</p>
+                    <button class="action-button pix-button" data-qrcode="qrcode pulseira.jpeg" data-pix-code="00020126660014br.gov.bcb.pix0114+55219664477790226PULSEIRA NFC PERSONALIZADA520400005303986540599.905802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr734025037123456789123456304ABCD">
+                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    </button>
+                </div>
+
+                <div class="product-item">
+                    <img src="adesivo.jpg" alt="Nome do Produto 5" class="product-image">
+                    <h3 class="product-name">ADESIVO NFC PERSONALIZADO</h3>
+                    <p class="product-description">Ideal para pequenas empresas e networking.</p>
+                    <p class="product-price">R$ 59,90</p>
+                    <button class="action-button pix-button" data-qrcode="qrcode chaveiro.jpeg" data-pix-code="00020126650014br.gov.bcb.pix0114+55219664477790225CHAVEIRO NFC PERSONALIZADO520400005303986540549.905802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr734025037987654321987654304WXYZ">
+                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    </button>
+                </div>
+                <div class="product-item">
+                    <img src="breve.jpg" alt="Display A4 com Tag NFC" class="product-image">
+                    <h3 class="product-name">DISPLAY A4 COM TAG NFC</h3>
+                    <p class="product-description">Ideal para recepções, feiras e eventos. Permite que seus clientes acessem informações, menus ou promoções via NFC com um toque.</p>
+                    <p class="product-price">R$ 219,90</p>
+                    <button class="action-button pix-button" data-qrcode="qrcode display-a4.jpeg" data-pix-code="00020126650014br.gov.bcb.pix0114+55219664477790225DISPLAY A4 NFC5204000053039865406220.005802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr734025037DISPLAYNFC304ABCD">
+                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="qrCodeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Leia o QR Code para acessar o site!</h2>
+            <div id="qrcode" class="qr-code-placeholder"></div>
+            <p>Escaneie com a câmera do seu celular.</p>
+        </div>
+    </div>
+
+    <div id="productPixModal" class="modal product-pix-modal">
+        <div class="modal-content pix-modal-content">
+            <span class="close-button pix-close-button">&times;</span>
+            <h3>Pagar via Pix</h3>
+            <p>Escaneie o QR Code abaixo para efetuar o pagamento.</p>
+            <img id="pixQrCodeImage" src="" alt="QR Code Pix" class="pix-qr-code-image">
+            <button id="copyPixCodeBtn" class="action-button copy-pix-button">
+                <i class="fas fa-copy"></i> Copiar Código Pix
+            </button>
+            <p class="pix-instructions">Após o pagamento, envie o comprovante para o nosso WhatsApp para confirmar o pedido.</p>
+        </div>
+    </div>
+
+    <div id="generalPixModal" class="modal">
+        <div class="modal-content general-pix-modal-content">
+            <span class="close-button general-pix-close-button">&times;</span>
+            <h3>Pagar com Pix - Chave Geral</h3>
+            <p>Utilize a chave Pix abaixo para efetuar o pagamento:</p>
+            <p class="pix-key-display" id="generalPixKeyDisplay">+5521966447779</p> <button id="copyGeneralPixKeyBtn" class="action-button copy-pix-button">
+                <i class="fas fa-copy"></i> Copiar Chave Pix
+            </button>
+            <p class="pix-instructions">Após o pagamento, envie o comprovante para o nosso WhatsApp para confirmar o pedido.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</body>
+</html>
