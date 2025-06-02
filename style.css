@@ -135,8 +135,7 @@ body {
     box-shadow: 0 4px 10px var(--shadow-color);
     box-sizing: border-box;
     width: 100%;
-    padding: 20px; /* Padding inicial para o botão */
-    overflow: hidden; /* Importante para a transição de max-height */
+    padding: 20px; 
 }
 
 /* Seção de Perfil */
@@ -287,25 +286,33 @@ body {
 
 .products-content-hidden {
     max-height: 0;
-    overflow: hidden;
+    overflow: hidden; 
     transition: max-height 0.5s ease-out, padding 0.5s ease-out;
     padding: 0;
     margin-top: 0;
-    /* Adicione estas propriedades para garantir que não haja vazamento */
     visibility: hidden;
     opacity: 0;
 }
 
 .products-content-visible {
-    /* Aumentado significativamente para acomodar mais produtos */
-    max-height: 3000px; /* Valor bem alto para garantir que todos os produtos caibam */
+    max-height: 5000px; /* Ajustado para um valor maior */
     padding-top: 20px;
-    /* Ajuste para que a seção de produtos tenha padding inferior, se desejado */
-    padding-bottom: 0; /* Mantenha 0 aqui para que a section pai controle o padding inferior */
+    padding-bottom: 20px;
     margin-top: 20px;
-    /* Adicione estas propriedades para garantir que a transição seja suave */
     visibility: visible;
     opacity: 1;
+}
+
+/* Novo estilo para os títulos das categorias de produtos */
+.products-category-title {
+    font-size: 1.6em;
+    color: var(--dark-blue);
+    margin: 30px 0 20px 0;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 10px;
 }
 
 .product-item {
@@ -313,7 +320,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     padding: 20px;
-    margin-bottom: 20px; /* Espaço entre os produtos */
+    margin-bottom: 20px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -322,7 +329,7 @@ body {
 }
 
 .product-item:last-child {
-    margin-bottom: 0; /* Remove margem do último item para que não crie espaço extra na base do productsContent */
+    margin-bottom: 0; 
 }
 
 .product-image {
@@ -340,6 +347,12 @@ body {
     font-weight: bold;
 }
 
+.product-dimensions {
+    font-size: 0.85em;
+    color: #777;
+    margin: -5px 0 10px 0;
+}
+
 .product-description {
     font-size: 0.9em;
     color: #666;
@@ -354,61 +367,63 @@ body {
     margin-bottom: 20px;
 }
 
-.pix-button {
-    width: 90%;
+/* Estilo para o novo botão de orçamento do WhatsApp */
+.whatsapp-budget-button {
+    background-color: #25D366; /* Verde WhatsApp */
+    margin-top: 10px; /* Espaço entre preço e botão */
+}
+
+.whatsapp-budget-button:hover {
+    background-color: #1DA851;
+}
+
+/* Estilo para o botão de Copiar Chave Pix Geral dentro de cada item */
+.copy-general-pix-button-item {
+    background-color: #007bff; /* Cor do Pix, azul */
+    margin-top: 10px; /* Espaço entre o botão de orçamento e este */
+}
+
+.copy-general-pix-button-item:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
+}
+
+
+/* Estilos para o seletor de produtos */
+.product-options {
+    margin-bottom: 15px; 
+    width: 100%;
+    text-align: center;
+}
+
+.product-select {
+    width: calc(100% - 40px);
+    max-width: 250px; 
     padding: 10px 15px;
+    border: 1px solid var(--primary-blue);
+    border-radius: 20px;
+    background-color: var(--white);
+    color: var(--text-color);
     font-size: 1em;
+    cursor: pointer;
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20512%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M119.5%20326.9c-10.2%2010.2-26.6%2010.2-36.8%200L4.7%20247.9c-10.2-10.2-10.2-26.6%200-36.8L68.3%20146.3c10.2-10.2%2026.6-10.2%2036.8%200l24.6%2024.6c10.2%2010.2%2010.2%2026.6%200%2036.8L119.5%20326.9zm131.8%200c10.2%2010.2%2026.6%2010.2%2036.8%200L251.3%20247.9c10.2-10.2%2010.2-26.6%200-36.8L187.7%20146.3c-10.2-10.2-26.6-10.2-36.8%200l-24.6%2024.6c-10.2%2010.2-10.2%2026.6%200%2036.8L251.3%20326.9z%22%2F%3E%3C%2Fsvg%3E'); /* Seta customizada */
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
 }
 
-/* --- Estilos do Modal Pix de Produto (aninhado - permanece como modal) --- */
-.product-pix-modal {
-    z-index: 250;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.pix-modal-content {
-    max-width: 280px;
-    width: 90%;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.pix-qr-code-image {
-    max-width: 100%;
-    height: auto;
-    margin: 20px auto;
-    border: 1px solid #eee;
-    display: block;
-    box-shadow: 0 2px 8px var(--shadow-color);
-}
-
-.pix-instructions {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 15px;
-    line-height: 1.3;
-    margin-bottom: 15px;
-}
-
-/* Estilo para o botão de copiar Pix */
-.copy-pix-button {
-    background-color: #28a745; /* Um verde vibrante */
-    width: 100%; /* Ocupa a largura total do modal */
-    margin-top: 10px; /* Espaço acima do botão */
-    padding: 12px 15px;
-    font-size: 1em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.copy-pix-button:hover {
-    background-color: #218838; /* Um verde mais escuro no hover */
-    transform: translateY(-1px);
+.product-select:focus {
+    outline: none;
+    border-color: var(--dark-blue);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 /* Estilos para o Modal da Chave Pix Geral */
 .general-pix-modal-content {
-    max-width: 350px; /* Pode ser um pouco maior para a chave Pix */
-    padding-top: 40px; /* Aumenta o padding para o X não ficar muito próximo */
+    max-width: 350px;
+    padding-top: 40px;
 }
 
 .pix-key-display {
@@ -419,7 +434,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     margin: 20px auto;
-    word-break: break-all; /* Garante que a chave Pix não quebre o layout */
+    word-break: break-all;
 }
 
 
@@ -434,20 +449,20 @@ body {
     .product-price {
         font-size: 1.1em;
     }
-    .pix-button {
+    .action-button { /* Aplica-se a todos os botões de ação genéricos */
         padding: 8px 12px;
         font-size: 0.9em;
     }
-    .copy-pix-button {
-        padding: 10px 12px;
-        font-size: 0.9em;
-    }
     .top-buttons-wrapper {
-        flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas muito pequenas */
+        flex-wrap: wrap;
         max-width: 95%;
     }
     .top-buttons-wrapper .small-button {
         flex-grow: 1;
-        min-width: 120px; /* Garante um tamanho mínimo para cada botão */
+        min-width: 120px;
+    }
+    .whatsapp-budget-button,
+    .copy-general-pix-button-item {
+        width: 100%; /* Garante que ocupem a largura total em telas pequenas */
     }
 }
