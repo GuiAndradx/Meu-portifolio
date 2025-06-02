@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const WHATSAPP_NUMBER = '5521966447779'; // Seu número de WhatsApp aqui
+    const GENERAL_PIX_KEY = "21966447779"; // Sua chave Pix geral aqui
+
     // --- Funções para o Modal Padrão (Compartilhar/QR Code do Site) ---
     const qrCodeBtn = document.getElementById('qrCodeBtn');
     const qrCodeModal = document.getElementById('qrCodeModal');
@@ -7,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (qrCodeBtn && qrCodeModal && closeSiteQrButton && qrCodeContainer) {
         qrCodeBtn.addEventListener('click', () => {
-            qrCodeModal.style.display = 'flex'; // Exibe o modal
+            qrCodeModal.style.display = 'flex';
             if (!qrCodeContainer.dataset.qrcodeGenerated) {
                 const websiteUrl = window.location.href;
                 new QRCode(qrCodeContainer, {
@@ -66,60 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Modal Pix do Produto (ABRIR SOMENTE) E COPIAR CÓDIGO ---
-    const productPixModal = document.getElementById('productPixModal');
-    const pixCloseButton = document.querySelector('.pix-close-button');
-    const pixQrCodeImage = document.getElementById('pixQrCodeImage');
-    const copyPixCodeBtn = document.getElementById('copyPixCodeBtn');
-
-    let currentPixCode = ''; // Variável para armazenar o código Pix do produto atual
-
-    if (productPixModal && pixCloseButton && pixQrCodeImage && copyPixCodeBtn) {
-        // Event listener para todos os botões "Pagar com Pix"
-        document.querySelectorAll('.pix-button').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const qrCodeSrc = event.currentTarget.dataset.qrcode;
-                currentPixCode = event.currentTarget.dataset.pixCode; // Pega o código Pix
-                
-                if (qrCodeSrc) {
-                    pixQrCodeImage.src = qrCodeSrc;
-                    productPixModal.style.display = 'flex'; // Exibe o modal Pix
-                }
-            });
-        });
-
-        // Event listener para o botão "Copiar Código Pix"
-        copyPixCodeBtn.addEventListener('click', async () => {
-            if (currentPixCode) {
-                try {
-                    await navigator.clipboard.writeText(currentPixCode);
-                    alert('Código Pix copiado para a área de transferência!');
-                } catch (err) {
-                    console.error('Erro ao copiar o código Pix: ', err);
-                    alert('Erro ao copiar o código Pix. Por favor, copie manualmente: ' + currentPixCode);
-                }
-            } else {
-                alert('Nenhum código Pix disponível para copiar.');
-            }
-        });
-
-        // Fechar modal Pix
-        pixCloseButton.addEventListener('click', () => {
-            productPixModal.style.display = 'none';
-            currentPixCode = ''; // Limpa o código ao fechar
-        });
-
-        // Fechar modal Pix ao clicar fora dele
-        window.addEventListener('click', (event) => {
-            if (event.target === productPixModal) {
-                productPixModal.style.display = 'none';
-                currentPixCode = ''; // Limpa o código ao fechar
-            }
-        });
-    }
-
-    // --- NOVO: Modal para a Chave Pix Geral ---
-    // O seletor mudou de 'generalPixBtn' para 'generalPixBtnLink'
+    // --- Modal para a Chave Pix Geral (MANTIDO NO CABEÇALHO) ---
     const generalPixBtnLink = document.getElementById('generalPixBtnLink');
     const generalPixModal = document.getElementById('generalPixModal');
     const closeGeneralPixButton = document.querySelector('#generalPixModal .close-button');
@@ -127,21 +77,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyGeneralPixKeyBtn = document.getElementById('copyGeneralPixKeyBtn');
 
     if (generalPixBtnLink && generalPixModal && closeGeneralPixButton && generalPixKeyDisplay && copyGeneralPixKeyBtn) {
-        // Defina a chave Pix geral aqui
-        const generalPixKey = "21966447779"; // Substitua pela sua chave Pix real
-
-        generalPixBtnLink.addEventListener('click', () => { // Evento de clique no novo elemento
-            generalPixKeyDisplay.textContent = generalPixKey;
+        generalPixBtnLink.addEventListener('click', () => {
+            generalPixKeyDisplay.textContent = GENERAL_PIX_KEY;
             generalPixModal.style.display = 'flex';
         });
 
         copyGeneralPixKeyBtn.addEventListener('click', async () => {
             try {
-                await navigator.clipboard.writeText(generalPixKey);
+                await navigator.clipboard.writeText(GENERAL_PIX_KEY);
                 alert('Chave Pix copiada para a área de transferência!');
             } catch (err) {
                 console.error('Erro ao copiar a chave Pix geral: ', err);
-                alert('Erro ao copiar a chave Pix. Por favor, copie manualmente: ' + generalPixKey);
+                alert('Erro ao copiar a chave Pix. Por favor, copie manualmente: ' + GENERAL_PIX_KEY);
             }
         });
 
@@ -154,5 +101,115 @@ document.addEventListener('DOMContentLoaded', () => {
                 generalPixModal.style.display = 'none';
             }
         });
+    }
+
+    // --- NOVO: Lógica para os Botões "Copiar Chave Pix Geral" dentro de CADA PRODUTO ---
+    document.querySelectorAll('.copy-general-pix-button-item').forEach(button => {
+        button.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(GENERAL_PIX_KEY);
+                alert('Chave Pix geral copiada para a área de transferência!');
+            } catch (err) {
+                console.error('Erro ao copiar a chave Pix geral do item do produto: ', err);
+                alert('Erro ao copiar a chave Pix. Por favor, copie manualmente: ' + GENERAL_PIX_KEY);
+            }
+        });
+    });
+
+    // --- Lógica para Botão de Orçamento Personalizado no WhatsApp ---
+    document.querySelectorAll('.whatsapp-budget-button').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const productName = event.currentTarget.dataset.productName;
+            const message = encodeURIComponent(`Olá! Gostaria de fazer um orçamento personalizado referente ao produto: ${productName}.`);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    });
+
+
+    // --- Lógica para o seletor de Placas PREMIUM (A6, A5, A4) ---
+    const placaPremiumTypeSelect = document.getElementById('placa-premium-type-select');
+    const placaPremiumImage = document.getElementById('placa-premium-image');
+    const placaPremiumDimensions = document.getElementById('placa-premium-dimensions');
+    const placaPremiumDescription = document.getElementById('placa-premium-description');
+    const placaPremiumPrice = document.getElementById('placa-premium-price');
+
+    const placaPremiumOptions = {
+        'a6-premium': {
+            imgSrc: 'placa.jpg', // Imagem da placa A6 Premium
+            dimensions: 'Medidas: 11cm x 15cm',
+            description: 'Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local. Contém proteção de resina que mantém o brilho e evita desgastes.',
+            price: 'R$ 139,90',
+        },
+        'a5-premium': {
+            imgSrc: 'placa.jpg', // USANDO A MESMA IMAGEM DA A6 PREMIUM
+            dimensions: 'Medidas: 15cm x 21cm',
+            description: 'Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local. Contém proteção de resina que mantém o brilho e evita desgastes.',
+            price: 'R$ 199,90',
+        },
+        'a4-premium': {
+            imgSrc: 'placa.jpg', // USANDO A MESMA IMAGEM DA A6 PREMIUM
+            dimensions: 'Medidas: 21cm x 30cm',
+            description: 'Ideal para recepções, propagandas e eventos. Permite que seus clientes acessem informações, menus ou promoções via NFC com um toque. Contém proteção de resina que mantém o brilho e evita desgastes.',
+            price: 'R$ 269,90',
+        }
+    };
+
+    const updatePlacaPremiumDetails = (selectedType) => {
+        const data = placaPremiumOptions.hasOwnProperty(selectedType) ? placaPremiumOptions[selectedType] : placaPremiumOptions['a6-premium'];
+        placaPremiumImage.src = data.imgSrc;
+        placaPremiumDimensions.textContent = data.dimensions;
+        placaPremiumDescription.textContent = data.description;
+        placaPremiumPrice.textContent = data.price;
+    };
+
+    if (placaPremiumTypeSelect) {
+        placaPremiumTypeSelect.addEventListener('change', (event) => {
+            updatePlacaPremiumDetails(event.target.value);
+        });
+        updatePlacaPremiumDetails(placaPremiumTypeSelect.value); // Define os detalhes iniciais
+    }
+
+    // --- Lógica para o seletor de Placas NORMAIS (A6, A5, A4) ---
+    const placaComumTypeSelect = document.getElementById('placa-comum-type-select');
+    const placaComumImage = document.getElementById('placa-comum-image');
+    const placaComumDimensions = document.getElementById('placa-comum-dimensions');
+    const placaComumDescription = document.getElementById('placa-comum-description');
+    const placaComumPrice = document.getElementById('placa-comum-price');
+    
+    const placaComumOptions = {
+        'a6-comum': {
+            imgSrc: 'placa comum.png', // Imagem da placa A6 Comum
+            dimensions: 'Medidas: 11cm x 15cm',
+            description: 'Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local.',
+            price: 'R$ 99,90',
+        },
+        'a5-comum': {
+            imgSrc: 'placa comum.png', // USANDO A MESMA IMAGEM DA A6 COMUM
+            dimensions: 'Medidas: 15cm x 21cm',
+            description: 'Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local.',
+            price: 'R$ 159,90',
+        },
+        'a4-comum': {
+            imgSrc: 'placa comum.png', // USANDO A MESMA IMAGEM DA A6 COMUM
+            dimensions: 'Medidas: 21cm x 29.7cm',
+            description: 'Ideal para recepções, propagandas e eventos. Permite que seus clientes acessem informações, menus ou promoções via NFC com um toque.',
+            price: 'R$ 219,90',
+        }
+    };
+
+    const updatePlacaComumDetails = (selectedType) => {
+        const data = placaComumOptions.hasOwnProperty(selectedType) ? placaComumOptions[selectedType] : placaComumOptions['a6-comum'];
+        placaComumImage.src = data.imgSrc;
+        placaComumDimensions.textContent = data.dimensions;
+        placaComumDescription.textContent = data.description;
+        placaComumPrice.textContent = data.price;
+    };
+
+    if (placaComumTypeSelect) {
+        placaComumTypeSelect.addEventListener('change', (event) => {
+            updatePlacaComumDetails(event.target.value);
+        });
+        updatePlacaComumDetails(placaComumTypeSelect.value); // Define os detalhes iniciais
     }
 });
