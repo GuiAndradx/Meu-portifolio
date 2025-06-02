@@ -47,7 +47,7 @@
             <a href="https://www.linkedin.com/in/guilherme-andrade-60750435b/" target="_blank" class="social-icon-link">
                 <img src="linkedin.png" alt="LinkedIn" class="social-icon">
             </a>
-            <a href="https://www.instagram.com/guiiandrad_/" target="_blank" class="social-icon-link">
+            <a href="https://www.instagram.com/taggle.nfc/" target="_blank" class="social-icon-link">
                 <img src="instagram.png" alt="Instagram" class="social-icon">
             </a>
             <div id="generalPixBtnLink" class="social-icon-link" style="cursor: pointer;">
@@ -60,65 +60,102 @@
                 <i class="fas fa-box-open"></i> Ver Produtos <i class="fas fa-chevron-down toggle-icon"></i>
             </button>
             <div id="productsContent" class="products-content-hidden">
+                
+                <h2 class="products-category-title">PRODUTOS PREMIUM</h2>
+
                 <div class="product-item">
-                    <img src="cartao.png" alt="Nome do Produto 1" class="product-image">
+                    <img src="cartao.png" alt="cartao nfc" class="product-image">
                     <h3 class="product-name">CARTÃO NFC PERSONALIZADO</h3>
+                    <p class="product-dimensions">Medidas: 85mm x 55mm</p>
                     <p class="product-description">Um cartão de visitas moderno e sustentável para compartilhar seus contatos e redes sociais com um toque. Ideal para profissionais e empresas.</p>
                     <p class="product-price">R$ 79,90</p>
-                    <button class="action-button pix-button" data-qrcode="qrcode cartao.jpeg" data-pix-code="00020126640014br.gov.bcb.pix0114+55219664477790224CARTAO NFC PERSONALIZADO520400005303986540579.905802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr7340250375549516304CF94">
-                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    <button class="action-button whatsapp-budget-button" data-product-name="CARTÃO NFC PERSONALIZADO">
+                        <i class="fab fa-whatsapp"></i> Orçamento Personalizado
+                    </button>
+                    <button class="action-button copy-general-pix-button-item">
+                        <i class="fas fa-copy"></i> Copiar Chave Pix
                     </button>
                 </div>
 
                 <div class="product-item">
-                    <img src="placa.jpg" alt="Nome do Produto 2" class="product-image">
-                    <h3 class="product-name">PLACA NFC PERSONALIZADA COM RESINA</h3>
-                    <p class="product-description">Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local. Contem proteção de resina que mantem o brilho e evita desgastes.</p>
-                    <p class="product-price">R$ 139,90</p>
-                    <button class="action-button pix-button" data-qrcode="qrcode placa.jpeg" data-pix-code="00020126630014br.gov.bcb.pix0114+55219664477790223PLACA NFC PERSONALIZADA5204000053039865406150.005802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr7340250378115986304F207">
-                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    <img id="placa-premium-image" src="placa.jpg" alt="placa nfc premium" class="product-image">
+                    <h3 class="product-name">PLACA NFC PERSONALIZADA PREMIUM</h3>
+                    
+                    <div class="product-options">
+                        <label for="placa-premium-type-select">Tamanho da Placa:</label>
+                        <select id="placa-premium-type-select" class="product-select">
+                            <option value="a6-premium" selected>A6 (11x15cm)</option>
+                            <option value="a5-premium">A5 (15x21cm)</option>
+                            <option value="a4-premium">A4 (21x30cm)</option>
+                        </select>
+                    </div>
+
+                    <p id="placa-premium-dimensions" class="product-dimensions">Medidas: 11cm x 15cm</p>
+                    <p id="placa-premium-description" class="product-description">Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local. Contém proteção de resina que mantém o brilho e evita desgastes.</p>
+                    <p id="placa-premium-price" class="product-price">R$ 139,90</p>
+                    <button class="action-button whatsapp-budget-button" data-product-name="PLACA NFC PERSONALIZADA PREMIUM">
+                        <i class="fab fa-whatsapp"></i> Orçamento Personalizado
+                    </button>
+                    <button class="action-button copy-general-pix-button-item">
+                        <i class="fas fa-copy"></i> Copiar Chave Pix
                     </button>
                 </div>
 
-                <div class="product-item">
-                    <img src="adesivo.jpg" alt="Nome do Produto 3" class="product-image">
-                    <h3 class="product-name">ADESIVO NFC PERSONALIZADO COM RESINA</h3>
-                    <p class="product-description">Ideal para pequenas empresas e networking. Contem proteção de resina que mantem o brilho e evita desgastes.</p>
-                    <p class="product-price">R$ 69,90</p>
-                    <button class="action-button pix-button" data-qrcode="qrcode adesivo.jpeg" data-pix-code="00020126360014br.gov.bcb.pix0114+5521966447779520400005303986540569.905802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr7340250376835286304D8B5">
-                        <i class="fas fa-qrcode"></i> Pagar com Pix
-                    </button>
-                </div>
+                <h2 class="products-category-title">PRODUTOS NORMAIS</h2>
 
                 <div class="product-item">
-                    <img src="placa comum.png" alt="Placa nfc" class="product-image">
+                    <img id="placa-comum-image" src="placa comum.png" alt="placa nfc" class="product-image">
                     <h3 class="product-name">PLACA NFC PERSONALIZADA</h3>
-                    <p class="product-description">Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local.</p>
-                    <p class="product-price">R$ 99,90</p>
-                    <button class="action-button pix-button" data-qrcode="qrcode pulseira.jpeg" data-pix-code="00020126660014br.gov.bcb.pix0114+55219664477790226PULSEIRA NFC PERSONALIZADA520400005303986540599.905802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr734025037123456789123456304ABCD">
-                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    
+                    <div class="product-options">
+                        <label for="placa-comum-type-select">Tamanho da Placa:</label>
+                        <select id="placa-comum-type-select" class="product-select">
+                            <option value="a6-comum" selected>A6 (11x15cm)</option>
+                            <option value="a5-comum">A5 (15x21cm)</option>
+                            <option value="a4-comum">A4 (21x29.7cm)</option>
+                        </select>
+                    </div>
+
+                    <p id="placa-comum-dimensions" class="product-dimensions">Medidas: 11cm x 15cm</p>
+                    <p id="placa-comum-description" class="product-description">Transforme a experiência do seu cliente com placas NFC programáveis para promoções, informações de produtos ou informações do local.</p>
+                    <p id="placa-comum-price" class="product-price">R$ 99,90</p>
+                    <button class="action-button whatsapp-budget-button" data-product-name="PLACA NFC PERSONALIZADA (Comum)">
+                        <i class="fab fa-whatsapp"></i> Orçamento Personalizado
+                    </button>
+                    <button class="action-button copy-general-pix-button-item">
+                        <i class="fas fa-copy"></i> Copiar Chave Pix
+                    </button>
+                </div>
+
+                                <div class="product-item">
+                    <img src="adesivo.jpg" alt="adesivo premium" class="product-image">
+                    <h3 class="product-name">ADESIVO NFC PERSONALIZADO PREMIUM</h3>
+                    <p class="product-dimensions">Medidas: 30mm (diâmetro)</p>
+                    <p class="product-description">Ideal para pequenas empresas e networking. Contém proteção de resina que mantém o brilho e evita desgastes.</p>
+                    <p class="product-price">R$ 69,90</p>
+                    <button class="action-button whatsapp-budget-button" data-product-name="ADESIVO NFC PERSONALIZADO PREMIUM">
+                        <i class="fab fa-whatsapp"></i> Orçamento Personalizado
+                    </button>
+                    <button class="action-button copy-general-pix-button-item">
+                        <i class="fas fa-copy"></i> Copiar Chave Pix
                     </button>
                 </div>
 
                 <div class="product-item">
-                    <img src="adesivo comum.png" alt="Nome do Produto 5" class="product-image">
+                    <img src="adesivo comum.png" alt="adesivo" class="product-image">
                     <h3 class="product-name">ADESIVO NFC PERSONALIZADO</h3>
+                    <p class="product-dimensions">Medidas: 3cm (diâmetro)</p>
                     <p class="product-description">Ideal para pequenas empresas e networking.</p>
                     <p class="product-price">R$ 59,90</p>
-                    <button class="action-button pix-button" data-qrcode="qrcode chaveiro.jpeg" data-pix-code="00020126650014br.gov.bcb.pix0114+55219664477790225CHAVEIRO NFC PERSONALIZADO520400005303986540549.905802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr734025037987654321987654304WXYZ">
-                        <i class="fas fa-qrcode"></i> Pagar com Pix
+                    <button class="action-button whatsapp-budget-button" data-product-name="ADESIVO NFC PERSONALIZADO">
+                        <i class="fab fa-whatsapp"></i> Orçamento Personalizado
+                    </button>
+                    <button class="action-button copy-general-pix-button-item">
+                        <i class="fas fa-copy"></i> Copiar Chave Pix
                     </button>
                 </div>
-                <div class="product-item">
-                    <img src="breve.jpg" alt="Display A4 com Tag NFC" class="product-image">
-                    <h3 class="product-name">DISPLAY A4 COM TAG NFC</h3>
-                    <p class="product-description">Ideal para recepções, feiras e eventos. Permite que seus clientes acessem informações, menus ou promoções via NFC com um toque.</p>
-                    <p class="product-price">R$ 219,90</p>
-                    <button class="action-button pix-button" data-qrcode="qrcode display-a4.jpeg" data-pix-code="00020126650014br.gov.bcb.pix0114+55219664477790225DISPLAY A4 NFC5204000053039865406220.005802BR5924Guilherme de Andrade Men6008Brasilia62230519daqr734025037DISPLAYNFC304ABCD">
-                        <i class="fas fa-qrcode"></i> Pagar com Pix
-                    </button>
+                
                 </div>
-            </div>
         </section>
     </main>
 
@@ -128,19 +165,6 @@
             <h2>Leia o QR Code para acessar o site!</h2>
             <div id="qrcode" class="qr-code-placeholder"></div>
             <p>Escaneie com a câmera do seu celular.</p>
-        </div>
-    </div>
-
-    <div id="productPixModal" class="modal product-pix-modal">
-        <div class="modal-content pix-modal-content">
-            <span class="close-button pix-close-button">&times;</span>
-            <h3>Pagar via Pix</h3>
-            <p>Escaneie o QR Code abaixo para efetuar o pagamento.</p>
-            <img id="pixQrCodeImage" src="" alt="QR Code Pix" class="pix-qr-code-image">
-            <button id="copyPixCodeBtn" class="action-button copy-pix-button">
-                <i class="fas fa-copy"></i> Copiar Código Pix
-            </button>
-            <p class="pix-instructions">Após o pagamento, envie o comprovante para o nosso WhatsApp para confirmar o pedido.</p>
         </div>
     </div>
 
